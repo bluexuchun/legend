@@ -5,6 +5,7 @@ import './choice.less'
 import pic4 from '@/assets/imgs/4.jpg'
 import pic5 from '@/assets/imgs/5.jpg'
 import music from '@/assets/imgs/music.png'
+import confrim from '@/assets/imgs/confrim.png'
 
 class choice extends Component{
   constructor(props){
@@ -33,14 +34,23 @@ class choice extends Component{
           <img className="icon-introduce" src={pic5} alt=""/>
           <img className="icon-music" src={music} style={{animation:this.state.isPlay ? 'cir 1s linear infinite' : ''}} alt=""/>
           <div className="options">
-              <div className="options-word" onClick={() => this.choose(0)}>A.{this.state.options[0].name}</div>
-              <div className="options-word" onClick={() => this.choose(1)}>B.{this.state.options[1].name}</div>
+              <div className="options-word" onClick={() => this.choose(0)}>
+                <div className="option-cir"></div>
+                A.{this.state.options[0].name}
+              </div>
+              <div className="options-word" onClick={() => this.choose(1)}>
+                <div className="option-cir"></div>
+                B.{this.state.options[1].name}
+              </div>
           </div>
           <audio id="audioCont" src={this.state.music}></audio>
         </div>
         <div className="choice-before" style={{display:this.state.isShow ? 'none':'flex'}}>
           <img className="icon-introduce" src={pic4} alt=""/>
           <div className="btn" onClick={() => this.toNext()}></div>
+          <div className="confrim" onClick={() => this.toNext()}>
+            <img src={confrim} className="confrim-btn" alt=""/>
+          </div>
         </div>
 
       </div>
